@@ -45,6 +45,9 @@
                 <a href="projects.html" class="px-3.5 py-1.5 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition block">
                     პროექტები
                 </a>
+                <a href="employees.html" class="px-3.5 py-1.5 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition block">
+                    თანამშრომლები
+                </a>
                 <a href="contact.html" class="px-3.5 py-1.5 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition block">
                     კონტაქტი
                 </a>
@@ -77,6 +80,10 @@
                 <a href="projects.html" class="px-4 py-3 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 flex items-center gap-3 transition">
                     <i class="fa-solid fa-briefcase w-5 text-center text-slate-400"></i>
                     <span>პროექტები</span>
+                </a>
+                <a href="employees.html" class="px-4 py-3 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 flex items-center gap-3 transition">
+                    <i class="fa-solid fa-users w-5 text-center text-slate-400"></i>
+                    <span>თანამშრომლები</span>
                 </a>
                 <a href="contact.html" class="px-4 py-3 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 flex items-center gap-3 transition">
                     <i class="fa-solid fa-envelope w-5 text-center text-slate-400"></i>
@@ -316,7 +323,7 @@
                 <p class="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed">
                     გაიგეთ მეტი ჩემი ტექნიკური უნარების, მიზნებისა და განხორციელებული პროექტების შესახებ შემდეგ გვერდებზე გადასვლით:
                 </p>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 pt-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 pt-2">
                     <a href="about.html" class="p-4 rounded-2xl bg-slate-800/60 hover:bg-purple-900/30 border border-slate-700/60 hover:border-purple-500/40 transition duration-200 block">
                         <p class="font-bold text-white text-sm sm:text-base flex items-center justify-between">
                             <span>ჩემ შესახებ</span>
@@ -331,10 +338,17 @@
                         </p>
                         <p class="text-xs text-slate-400 mt-1">ავტოინსტრუქტორი, PetC და სხვა</p>
                     </a>
-                    <a href="contact.html" class="p-4 rounded-2xl bg-slate-800/60 hover:bg-indigo-900/30 border border-slate-700/60 hover:border-indigo-500/40 transition duration-200 block">
+                    <a href="employees.html" class="p-4 rounded-2xl bg-slate-800/60 hover:bg-indigo-900/30 border border-slate-700/60 hover:border-indigo-500/40 transition duration-200 block">
+                        <p class="font-bold text-white text-sm sm:text-base flex items-center justify-between">
+                            <span>თანამშრომლები</span>
+                            <i class="fa-solid fa-arrow-right text-xs text-indigo-400"></i>
+                        </p>
+                        <p class="text-xs text-slate-400 mt-1">REST API, Fetch &amp; Search</p>
+                    </a>
+                    <a href="contact.html" class="p-4 rounded-2xl bg-slate-800/60 hover:bg-emerald-900/30 border border-slate-700/60 hover:border-emerald-500/40 transition duration-200 block">
                         <p class="font-bold text-white text-sm sm:text-base flex items-center justify-between">
                             <span>კონტაქტი</span>
-                            <i class="fa-solid fa-arrow-right text-xs text-indigo-400"></i>
+                            <i class="fa-solid fa-arrow-right text-xs text-emerald-400"></i>
                         </p>
                         <p class="text-xs text-slate-400 mt-1">ელფოსტა, GitHub და ფორმა</p>
                     </a>
@@ -353,6 +367,7 @@
                     <i class="fa-brands fa-github text-sm"></i>
                     <span>GitHub: SANDRICKSON</span>
                 </a>
+                <a href="employees.html" class="hover:text-purple-400 transition">თანამშრომლები</a>
                 <a href="contact.html" class="hover:text-purple-400 transition">კონტაქტი</a>
                 <span class="text-slate-600">|</span>
                 <span>Tailwind CSS</span>
@@ -361,27 +376,7 @@
     </footer>
 
     <!-- Mobile Burger Menu JavaScript -->
-    <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-
-        if (mobileMenuBtn && mobileMenu && menuIcon) {
-            mobileMenuBtn.addEventListener('click', () => {
-                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-                mobileMenuBtn.setAttribute('aria-expanded', String(!isExpanded));
-                mobileMenu.classList.toggle('hidden');
-                
-                if (mobileMenu.classList.contains('hidden')) {
-                    menuIcon.classList.remove('fa-xmark');
-                    menuIcon.classList.add('fa-bars');
-                } else {
-                    menuIcon.classList.remove('fa-bars');
-                    menuIcon.classList.add('fa-xmark');
-                }
-            });
-        }
-    </script>
+    <script src="js/main.js"></script>
 
 </body>
 </html>

@@ -45,6 +45,9 @@
                 <a href="projects.html" class="px-3.5 py-1.5 rounded-xl font-medium text-white bg-purple-600/25 border border-purple-500/40 shadow-sm transition block" aria-current="page">
                     პროექტები
                 </a>
+                <a href="employees.html" class="px-3.5 py-1.5 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition block">
+                    თანამშრომლები
+                </a>
                 <a href="contact.html" class="px-3.5 py-1.5 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition block">
                     კონტაქტი
                 </a>
@@ -77,6 +80,10 @@
                 <a href="projects.html" class="px-4 py-3 rounded-xl font-medium text-white bg-purple-600/25 border border-purple-500/40 flex items-center gap-3 transition">
                     <i class="fa-solid fa-briefcase w-5 text-center text-purple-400"></i>
                     <span>პროექტები</span>
+                </a>
+                <a href="employees.html" class="px-4 py-3 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 flex items-center gap-3 transition">
+                    <i class="fa-solid fa-users w-5 text-center text-slate-400"></i>
+                    <span>თანამშრომლები</span>
                 </a>
                 <a href="contact.html" class="px-4 py-3 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 flex items-center gap-3 transition">
                     <i class="fa-solid fa-envelope w-5 text-center text-slate-400"></i>
@@ -449,6 +456,133 @@
             </div>
         </section>
 
+        <!-- ახალი პროექტის დამატების ფორმა (POST Method • JSONPlaceholder REST API) -->
+        <section class="space-y-6 pt-4">
+            <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+                <div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>ახალი პროექტის დამატება (POST API)</span>
+                    </h2>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-0.5">
+                        გაგზავნეთ ახალი პროექტი JSONPlaceholder REST API-ზე Fetch POST მოთხოვნით (Async/Await)
+                    </p>
+                </div>
+                <span class="text-xs text-emerald-400 font-semibold uppercase tracking-wider hidden sm:inline-block">
+                    POST /posts
+                </span>
+            </div>
+
+            <!-- შეტყობინების კონტეინერი (Alert Box) -->
+            <div id="project-alert" class="hidden transition-all duration-300">
+                <i id="project-alert-icon" class="text-base mt-0.5 shrink-0"></i>
+                <div class="space-y-1">
+                    <p id="project-alert-text" class="font-medium"></p>
+                </div>
+            </div>
+
+            <!-- ფორმის ბარათი -->
+            <div class="bg-slate-900/60 rounded-3xl p-6 sm:p-8 md:p-10 border border-slate-800 backdrop-blur-sm shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <form id="add-project-form" class="space-y-6 relative">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <!-- Project Title -->
+                        <div class="md:col-span-2 space-y-2">
+                            <label for="project-title" class="block text-xs sm:text-sm font-semibold text-slate-200">
+                                <i class="fa-solid fa-heading text-purple-400 mr-1.5"></i>
+                                <span>Project Title (პროექტის სათაური)</span>
+                                <span class="text-rose-400">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="project-title" 
+                                name="title" 
+                                required 
+                                placeholder="მაგ. AI ასისტენტი, Arduino ჭკვიანი სახლი..." 
+                                class="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition"
+                            >
+                        </div>
+
+                        <!-- User ID -->
+                        <div class="space-y-2">
+                            <label for="project-user-id" class="block text-xs sm:text-sm font-semibold text-slate-200">
+                                <i class="fa-solid fa-hashtag text-blue-400 mr-1.5"></i>
+                                <span>User ID</span>
+                                <span class="text-rose-400">*</span>
+                            </label>
+                            <input 
+                                type="number" 
+                                id="project-user-id" 
+                                name="userId" 
+                                required 
+                                min="1" 
+                                max="100" 
+                                value="1" 
+                                placeholder="1 - 100" 
+                                class="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Project Description -->
+                    <div class="space-y-2">
+                        <label for="project-description" class="block text-xs sm:text-sm font-semibold text-slate-200">
+                            <i class="fa-solid fa-align-left text-indigo-400 mr-1.5"></i>
+                            <span>Project Description (პროექტის აღწერა)</span>
+                            <span class="text-rose-400">*</span>
+                        </label>
+                        <textarea 
+                            id="project-description" 
+                            name="description" 
+                            rows="4" 
+                            required 
+                            placeholder="დაწერეთ პროექტის მოკლე აღწერა, გამოყენებული ტექნოლოგიები და მიზანი..." 
+                            class="w-full px-4 py-3 rounded-2xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition resize-y"
+                        ></textarea>
+                    </div>
+
+                    <!-- გაგზავნის ღილაკი & მინიშნება -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2 border-t border-slate-800/80">
+                        <p class="text-xs text-slate-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-circle-info text-purple-400"></i>
+                            <span>მონაცემები გაიგზავნება JSONPlaceholder REST API-ზე POST მეთოდით.</span>
+                        </p>
+
+                        <button 
+                            type="submit" 
+                            id="submit-project-btn" 
+                            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 shadow-lg shadow-purple-900/30 hover:shadow-purple-700/50 hover:-translate-y-0.5 active:translate-y-0 transition duration-200 text-sm sm:text-base cursor-pointer shrink-0"
+                        >
+                            <i id="submit-spinner" class="fa-solid fa-spinner animate-spin hidden"></i>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                            <span id="submit-btn-text">პროექტის დამატება</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- ახლად დამატებული პროექტების ვიზუალური სია (POST Response Cards) -->
+        <section id="created-projects-section" class="space-y-4 hidden">
+            <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+                        <span>ახლად დამატებული პროექტები (მიმდინარე სესია)</span>
+                    </h3>
+                    <p class="text-slate-400 text-xs mt-0.5">
+                        აქ ჩნდება API-დან POST მეთოდით მიღებული დაგენერირებული ბარათები ID-ით
+                    </p>
+                </div>
+            </div>
+
+            <div id="created-projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+                <!-- JavaScript-ით დინამიკურად ჩაემატება ახალი პროექტის ბარათები -->
+            </div>
+        </section>
+
         <!-- დამატებითი ინფორმაცია / GitHub ბმული -->
         <section class="bg-gradient-to-r from-purple-950/40 via-slate-900 to-blue-950/40 rounded-3xl p-6 sm:p-8 md:p-10 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="space-y-2 text-center sm:text-left">
@@ -469,8 +603,8 @@
                 <i class="fa-solid fa-arrow-left text-xs"></i>
                 <span>ჩემ შესახებ დაბრუნება</span>
             </a>
-            <a href="contact.html" class="text-purple-400 hover:text-purple-300 font-medium transition inline-flex items-center gap-1.5">
-                <span>დამიკავშირდით</span>
+            <a href="employees.html" class="text-purple-400 hover:text-purple-300 font-medium transition inline-flex items-center gap-1.5">
+                <span>თანამშრომლების ნახვა</span>
                 <i class="fa-solid fa-arrow-right text-xs"></i>
             </a>
         </div>
@@ -486,6 +620,7 @@
                     <i class="fa-brands fa-github text-sm"></i>
                     <span>GitHub: SANDRICKSON</span>
                 </a>
+                <a href="employees.html" class="hover:text-purple-400 transition">თანამშრომლები</a>
                 <a href="contact.html" class="hover:text-purple-400 transition">კონტაქტი</a>
                 <span class="text-slate-600">|</span>
                 <span>Tailwind CSS</span>
@@ -493,28 +628,9 @@
         </div>
     </footer>
 
-    <!-- Mobile Burger Menu JavaScript -->
-    <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-
-        if (mobileMenuBtn && mobileMenu && menuIcon) {
-            mobileMenuBtn.addEventListener('click', () => {
-                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-                mobileMenuBtn.setAttribute('aria-expanded', String(!isExpanded));
-                mobileMenu.classList.toggle('hidden');
-                
-                if (mobileMenu.classList.contains('hidden')) {
-                    menuIcon.classList.remove('fa-xmark');
-                    menuIcon.classList.add('fa-bars');
-                } else {
-                    menuIcon.classList.remove('fa-bars');
-                    menuIcon.classList.add('fa-xmark');
-                }
-            });
-        }
-    </script>
+    <!-- სკრიპტები: Burger Menu & Projects POST Logic -->
+    <script src="js/main.js"></script>
+    <script src="js/projects.js"></script>
 
 </body>
 </html>

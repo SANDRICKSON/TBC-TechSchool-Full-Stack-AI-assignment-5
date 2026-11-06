@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ka" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>სანდრო ქათამაძე — თანამშრომლები</title>
+    <!-- Google Fonts: Noto Sans Georgian -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS CDN Script -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body style="font-family: 'Noto Sans Georgian', sans-serif;" class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-purple-500 selection:text-white relative overflow-x-hidden">
+
+    <!-- დეკორატიული ფონის განათებები (Ambient Background Glow) -->
+    <div class="fixed top-0 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="fixed bottom-1/3 right-10 w-72 sm:w-96 h-72 sm:h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <!-- ზედა კოლონტიტული და Responsive ნავიგაცია (Header & Nav) -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/85 border-b border-slate-800/80 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-4 flex items-center justify-between gap-4">
+            
+            <!-- ლოგო / სახელი -->
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-blue-500 flex items-center justify-center font-bold text-white shadow-md shadow-purple-900/30 group-hover:scale-105 transition duration-200">
+                    SK
+                </div>
+                <div>
+                    <span class="text-base sm:text-lg font-bold text-white tracking-tight group-hover:text-purple-300 transition block">სანდრო ქათამაძე</span>
+                    <span class="text-[11px] sm:text-xs text-slate-400 block -mt-0.5">Fullstack, Mobile &amp; Arduino</span>
+                </div>
+            </a>
+
+            <!-- Desktop ნავიგაციის მენიუ -->
+            <nav aria-label="მთავარი ნავიგაცია" class="hidden md:flex items-center gap-1.5 bg-slate-900/80 p-1.5 rounded-2xl border border-slate-800 text-sm">
+                <a href="index.html" class="px-3.5 py-1.5 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition block">
+                    მთავარი
+                </a>
+                <a href="about.html" class="px-3.5 py-1.5 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition block">
+                    ჩემ შესახებ
+                </a>
+                <a href="projects.html" class="px-3.5 py-1.5 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition block">
+                    პროექტები
+                </a>
+                <a href="employees.html" class="px-3.5 py-1.5 rounded-xl font-medium text-white bg-purple-600/25 border border-purple-500/40 shadow-sm transition block" aria-current="page">
+                    თანამშრომლები
+                </a>
+                <a href="contact.html" class="px-3.5 py-1.5 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition block">
+                    კონტაქტი
+                </a>
+            </nav>
+
+            <!-- Mobile Burger Menu Button -->
+            <button 
+                id="mobile-menu-btn" 
+                type="button" 
+                aria-label="მენიუს გახსნა და დახურვა" 
+                aria-expanded="false" 
+                aria-controls="mobile-menu"
+                class="md:hidden w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-purple-500/50 flex items-center justify-center transition focus:outline-none focus:ring-2 focus:ring-purple-500/50 cursor-pointer"
+            >
+                <i id="menu-icon" class="fa-solid fa-bars text-lg transition-transform duration-200"></i>
+            </button>
+        </div>
+
+        <!-- Mobile ჩამოსაშლელი მენიუ -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800/90 bg-slate-950/95 backdrop-blur-xl px-4 py-4 transition-all">
+            <nav aria-label="მობილური ნავიგაცია" class="flex flex-col gap-2">
+                <a href="index.html" class="px-4 py-3 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 flex items-center gap-3 transition">
+                    <i class="fa-solid fa-house w-5 text-center text-slate-400"></i>
+                    <span>მთავარი</span>
+                </a>
+                <a href="about.html" class="px-4 py-3 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 flex items-center gap-3 transition">
+                    <i class="fa-solid fa-user w-5 text-center text-slate-400"></i>
+                    <span>ჩემ შესახებ</span>
+                </a>
+                <a href="projects.html" class="px-4 py-3 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 flex items-center gap-3 transition">
+                    <i class="fa-solid fa-briefcase w-5 text-center text-slate-400"></i>
+                    <span>პროექტები</span>
+                </a>
+                <a href="employees.html" class="px-4 py-3 rounded-xl font-medium text-white bg-purple-600/25 border border-purple-500/40 flex items-center gap-3 transition">
+                    <i class="fa-solid fa-users w-5 text-center text-purple-400"></i>
+                    <span>თანამშრომლები</span>
+                </a>
+                <a href="contact.html" class="px-4 py-3 rounded-xl font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 flex items-center gap-3 transition">
+                    <i class="fa-solid fa-envelope w-5 text-center text-slate-400"></i>
+                    <span>კონტაქტი</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ძირითადი შიგთავსი (Main) -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 space-y-10 sm:space-y-12">
+
+        <!-- შესავალი სექცია -->
+        <section class="space-y-3 sm:space-y-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-950/60 border border-purple-500/30 text-purple-300 text-xs sm:text-sm font-medium">
+                <i class="fa-solid fa-users text-xs"></i>
+                <span>JSONPlaceholder REST API • Live Data</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight break-words">
+                თანამშრომლები
+            </h1>
+            <p class="text-slate-300 text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed">
+                გაეცანით ჩვენი გუნდის თანამშრომლების ჩამონათვალს. მონაცემები დინამიკურად იტვირთება 
+                JSONPlaceholder REST API-დან Fetch API-სა და Async/Await-ის გამოყენებით.
+            </p>
+        </section>
+
+        <!-- ძებნისა და ფილტრაციის ბარი -->
+        <section id="search-container" class="bg-slate-900/60 rounded-3xl p-5 sm:p-6 border border-slate-800 backdrop-blur-sm shadow-xl space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="relative flex-1 max-w-xl">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none"></i>
+                    <input 
+                        type="text" 
+                        id="employee-search-input" 
+                        placeholder="მოძებნე თანამშრომელი სახელით ან username-ით..." 
+                        class="w-full pl-11 pr-10 py-3 rounded-2xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition"
+                        aria-label="თანამშრომლის ძებნა სახელით"
+                    >
+                    <button 
+                        id="clear-search-btn" 
+                        type="button" 
+                        aria-label="ძებნის გასუფთავება"
+                        class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center text-xs transition cursor-pointer"
+                    >
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-3 shrink-0">
+                    <span id="results-count" class="text-xs sm:text-sm text-slate-400 font-medium">
+                        მონაცემები მზადდება...
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading მდგომარეობა (Skeleton & Spinner) -->
+        <div id="loading-state" class="py-12 flex flex-col items-center justify-center gap-4 text-center">
+            <div class="w-12 h-12 rounded-full border-4 border-purple-500/20 border-t-purple-500 animate-spin"></div>
+            <div class="space-y-1">
+                <p class="text-white font-medium text-base">მონაცემები იტვირთება API-დან...</p>
+                <p class="text-xs text-slate-400">გთხოვთ დაელოდოთ (Fetch API • Async/Await)</p>
+            </div>
+            
+            <!-- Skeleton ბარათების იმიტაცია Loading დროს -->
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+                <div class="h-64 rounded-3xl bg-slate-900/40 border border-slate-800/60 animate-pulse p-6"></div>
+                <div class="h-64 rounded-3xl bg-slate-900/40 border border-slate-800/60 animate-pulse p-6 hidden md:block"></div>
+                <div class="h-64 rounded-3xl bg-slate-900/40 border border-slate-800/60 animate-pulse p-6 hidden lg:block"></div>
+            </div>
+        </div>
+
+        <!-- Error მდგომარეობა (მოიცავს Retry ღილაკს) -->
+        <div id="error-state" class="hidden bg-rose-950/40 border-2 border-rose-500/50 rounded-3xl p-6 sm:p-8 text-center space-y-4 max-w-xl mx-auto shadow-2xl">
+            <div class="w-14 h-14 rounded-2xl bg-rose-900/50 border border-rose-500/40 text-rose-300 text-2xl flex items-center justify-center mx-auto">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div class="space-y-1.5">
+                <h3 class="text-lg sm:text-xl font-bold text-white">მონაცემების ჩატვირთვა ვერ მოხერხდა</h3>
+                <p id="error-message-text" class="text-xs sm:text-sm text-rose-200 leading-relaxed break-words">
+                    სერვერთან კავშირის შეცდომა.
+                </p>
+            </div>
+            <div class="pt-2">
+                <button 
+                    id="retry-btn" 
+                    type="button" 
+                    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-rose-600 to-purple-600 hover:from-rose-500 hover:to-purple-500 shadow-lg shadow-rose-950/50 transition cursor-pointer text-sm"
+                >
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <span>ხელახლა ცდა (Retry)</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Empty State (როდესაც ძებნამ შედეგი ვერ გამოიღო) -->
+        <div id="empty-state" class="hidden bg-slate-900/40 border border-slate-800 rounded-3xl p-8 sm:p-12 text-center space-y-3 max-w-lg mx-auto">
+            <div class="w-12 h-12 rounded-2xl bg-slate-800 text-slate-400 text-xl flex items-center justify-center mx-auto">
+                <i class="fa-solid fa-user-slash"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">თანამშრომელი ვერ მოიძებნა</h3>
+            <p class="text-xs sm:text-sm text-slate-400">
+                სცადეთ სხვა სახელით ან გასუფთავეთ საძიებო ველი.
+            </p>
+        </div>
+
+        <!-- თანამშრომლების ბარათების ბადე (Responsive Grid) -->
+        <section aria-label="თანამშრომლების სია">
+            <div id="employees-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+                <!-- JavaScript-ით დინამიკურად ჩაისმება თანამშრომლების ბარათები -->
+            </div>
+        </section>
+
+        <!-- დამატებითი ინფორმაციის სექცია -->
+        <section class="bg-gradient-to-r from-purple-950/40 via-slate-900 to-blue-950/40 rounded-3xl p-6 sm:p-8 md:p-10 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="space-y-2 text-center sm:text-left">
+                <h3 class="text-xl sm:text-2xl font-bold text-white">დაინტერესდით ჩვენს გუნდთან თანამშრომლობით?</h3>
+                <p class="text-slate-300 text-xs sm:text-sm max-w-xl">
+                    თუ გაქვთ საინტერესო იდეა, პროექტი ან გსურთ ჩვენთან დაკავშირება, მოგვწერეთ საკონტაქტო გვერდიდან.
+                </p>
+            </div>
+            <a href="contact.html" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 shadow-md transition duration-200 shrink-0 w-full sm:w-auto">
+                <i class="fa-solid fa-paper-plane text-sm"></i>
+                <span>დაგვიკავშირდით</span>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- ქვედა კოლონტიტული (Footer) -->
+    <footer class="border-t border-slate-800/80 bg-slate-950/80 py-6 sm:py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-400 text-center sm:text-left">
+            <p>&copy; 2026 Sandro Katamadze | All Rights Reserved</p>
+            <div class="flex items-center gap-5 sm:gap-6 flex-wrap justify-center">
+                <a href="https://github.com/SANDRICKSON" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition inline-flex items-center gap-1.5">
+                    <i class="fa-brands fa-github text-sm"></i>
+                    <span>GitHub: SANDRICKSON</span>
+                </a>
+                <a href="employees.html" class="text-purple-400 transition">თანამშრომლები</a>
+                <a href="contact.html" class="hover:text-purple-400 transition">კონტაქტი</a>
+                <span class="text-slate-600">|</span>
+                <span>Tailwind CSS</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- სკრიპტები: Burger Menu & Employees Fetch Logic -->
+    <script src="js/main.js"></script>
+    <script src="js/employees.js"></script>
+
+</body>
+</html>
+
